@@ -24,14 +24,14 @@ const JobListings = ({ isHome = false }) => {
       } finally {
         setTimeout(() => {
           setLoading(false);
-        }, 2000);
+        }, 200);
 
         // setLoading(false);
       }
     };
 
     fetchJobs();
-  }, []);
+  }, [isHome]);
 
 
   // const jobsListings = isHome ? jobs.slice(0, 3) : jobs;
@@ -43,8 +43,8 @@ const JobListings = ({ isHome = false }) => {
         <h2 className="text-3xl font-bold text-indigo-500 mb-6 text-center">
           {isHome ? <>Browse Jobs</> : <></>}
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {loading ? (<div className="flex flex-cols justify-center items-center"><Spinner loading={loading} /></div>) :
+        <div className={loading ? "flex justify-center" : "grid grid-cols-1 md:grid-cols-3 gap-6"}>
+          {loading ? (<Spinner loading={loading} />) :
             jobs.map((job) => (
               <JobListing job={job} key={job.id} />
             ))
