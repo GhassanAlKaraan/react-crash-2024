@@ -15,18 +15,18 @@
       }
     },
     {
-      "id": "3",
       "title": "React.js Dev",
       "type": "Full-Time",
       "location": "Brooklyn, NY",
       "description": "Are you passionate about front-end development? Join our team in vibrant Brooklyn, NY, and work on exciting projects that make a difference. We offer competitive compensation and a collaborative work environment where your ideas are valued.",
-      "salary": "$70K - $80K",
+      "salary": "Over $200K",
       "company": {
         "name": "Dolor Cloud",
         "description": "Dolor Cloud is a leading technology company specializing in digital solutions for businesses of all sizes. With a focus on innovation and customer satisfaction, we are committed to delivering cutting-edge products and services.",
         "contactEmail": "contact@dolorsitamet.com",
         "contactPhone": "555-555-5555"
-      }
+      },
+      "id": "3"
     },
     {
       "id": "4",
@@ -68,6 +68,20 @@
         "description": "Incididunt laudantiu",
         "contactEmail": "vilaqegev@mailinator.com",
         "contactPhone": "+1 (207) 772-4158"
+      }
+    },
+    {
+      "id": "b774",
+      "title": "Veniam et aliquam s",
+      "type": "Remote",
+      "location": "In ullamco quisquam ",
+      "description": "Ab saepe pariatur V",
+      "salary": "$150K - 175K",
+      "company": {
+        "name": "Santana and Madden Plc",
+        "description": "Eiusmod ullamco fugi",
+        "contactEmail": "dusanazoke@mailinator.com",
+        "contactPhone": "+1 (353) 262-9989"
       }
     }
   ]

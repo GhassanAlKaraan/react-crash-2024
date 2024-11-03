@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { useLoaderData, Link, useNavigate } from 'react-router-dom';
-import { toast } from "react-toastify";
 import { FaMapMarker } from 'react-icons/fa';
 
 const JobPage = ({ deleteJob }) => {
@@ -12,7 +11,6 @@ const JobPage = ({ deleteJob }) => {
       const confirm = window.confirm('Are you sure you want to delete this listing?');
       if (!confirm) return;
       deleteJob(jobId);
-      toast.success("Job Deleted Successfully");
       navigate('/jobs');
     } catch (error) {
       console.log(error);
@@ -93,7 +91,7 @@ const JobPage = ({ deleteJob }) => {
               <div className="bg-white p-6 rounded-lg shadow-md mt-6">
                 <h3 className="text-xl font-bold mb-6">Manage Job</h3>
                 <Link
-                  to="/add-job"
+                  to={`/edit-job/${job.id}`}
                   className="bg-indigo-500 hover:bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
                 >Edit Job</Link>
                 <button

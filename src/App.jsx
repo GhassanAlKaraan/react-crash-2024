@@ -10,6 +10,7 @@ import JobsPage from "./pages/JobsPage.jsx";
 import JobPage, { jobLoader } from "./pages/JobPage.jsx";
 import NotFoundPage from "./pages/NotFound.jsx";
 import AddJobPage from "./pages/AddJobPage.jsx";
+import EditJobPage from "./pages/EditJobPage.jsx";
 
 //
 import { toast } from "react-toastify";
@@ -24,7 +25,10 @@ const App = () => {
       body: JSON.stringify(newJob)
     });
     const data = await res.json();
+    const success = res.ok;
     console.log('Job Added:', data);
+    if (!success) { toast.error("Could Not Add Job. Please try again later."); }
+    else { toast.success("Job Added Successfully."); }
   };
 
   const deleteJob = async (id) => {
@@ -32,6 +36,15 @@ const App = () => {
     const success = res.ok;
     console.log(success ? `Job deleted successfully: ${id}` : `Could not delete job: ${id}`);
     if (!success) { toast.error("Could Not Delete Job. Please try again later."); }
+    else { toast.success("Job Deleted Successfully."); }
+  };
+
+  const updateJob = async (id, updatedJob) => {
+    const res = await fetch(`/api/jobs/${id}`, { method: 'PUT', body: JSON.stringify(updatedJob) });
+    const success = res.ok;
+    console.log(success ? `Job updated successfully: ${id}` : `Could not update job: ${id}`);
+    if (!success) { toast.error("Could Not Update Job. Please try again later."); }
+    else { toast.success("Job Updated Successfully."); }
   };
 
   const router = createBrowserRouter(
@@ -41,6 +54,7 @@ const App = () => {
         <Route path="/jobs" element={<JobsPage />} />
         <Route path="/add-job" element={<AddJobPage addJobSubmit={addJob} />} />
         <Route path="/jobs/:id" element={<JobPage deleteJob={deleteJob} />} loader={jobLoader} />
+        <Route path="/edit-job/:id" element={<EditJobPage updateJobSubmit={updateJob} />} loader={jobLoader} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     )
